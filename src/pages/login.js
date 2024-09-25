@@ -8,17 +8,15 @@ import styles from '../components/styles.module.css';
 
 const Login = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false); // To show loading while logging in
+  const [loading, setLoading] = useState(false);
   // Function that handles form submission
   const onFinish = (values) => {
     console.log('Success:', values);
-    setLoading(true); // Set loading state to true
+    setLoading(true);
 
-    // Simulate an API call for login
     setTimeout(() => {
-      // After login success, redirect to the dashboard
       router.push('/dashboard');
-    }, 1000); // Simulate a delay for demonstration
+    }, 1000);
   };
 
   const handleSignup = () => {
@@ -58,17 +56,27 @@ const Login = () => {
               <Form.Item
                 label="Email"
                 name="email"
-                rules={[{ required: true, message: 'Please input your Email!' }]}
+                rules={[{ required: true, message: 'Please input your Email!' },
+                {
+                  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Please enter a valid email!',
+                }
+                ]}
               >
-                <Input />
+                <Input placeholder="Abc@gmail.com" />
               </Form.Item>
 
               <Form.Item
                 label="Password"
                 name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
+                rules={[{ required: true, message: 'Please input your password!' },
+                {
+                  pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/,
+                  message: 'Password must contain at least 8 characters, one uppercase letter, one special character,number.',
+                }
+                ]}
               >
-                <Input.Password />
+                <Input.Password placeholder="Password" />
               </Form.Item>
 
 
@@ -84,33 +92,6 @@ const Login = () => {
               </div>
             </Form>
           </div>
-
-
-
-          {/* <h2>Login</h2>
-                    <form onSubmit={handleLogin}>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="username">Username</label>
-                            <input
-                                type="text"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className={styles.submitBtn}>Submit</button>
-                    </form> */}
         </div>
 
         <div className='text-black absolute bottom-1 w-full flex justify-around'>
