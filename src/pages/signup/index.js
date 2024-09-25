@@ -8,25 +8,23 @@ import styles from '../../components/styles.module.css';
 
 const index = () => {
     const router = useRouter();
-    const [loading, setLoading] = useState(false); // To show loading while logging in
+    const [loading, setLoading] = useState(false);
     const [password, setpassword] = useState('');
     const [megerr, setmsgerr] = useState('Please input your Confirm password!')
-    // var errormsg = "Please input your Confirm password!"
+    var errormsg = "Please input your Confirm password!"
     const handleEmail = (values) => {
         setpassword(values.target.value)
-        // console.log('values.target.value: ', document.getElementById("pass").innerHTML );
     }
 
     const confirmpass = (e) => {
-        const confirmp = e.target.value
-        const splitpass = password.split('')
+        var confirmp = e.target.value
         if (confirmp === password) {
-            setmsgerr('Correct Inputs')
-            // var errormsg = "Correct Inputs"
+            // setmsgerr('Correct Inputs')
+            errormsg = "Correct Inputs"
         } else {
-            // var errormsg = "Please enter correct values"
+            errormsg = "Please enter correct Inputs"
             console.log(megerr, 'megerr');
-            setmsgerr('Please enter correct values')
+            // setmsgerr('Please enter correct values')
 
         }
     }
@@ -34,17 +32,16 @@ const index = () => {
     // Function that handles form submission
     const onFinish = (values) => {
         console.log('Success:', values);
-        setLoading(true); // Set loading state to true
+        setLoading(true); 
 
-        // Simulate an API call for login
         setTimeout(() => {
-            // After login success, redirect to the dashboard
             router.push('/dashboard');
-        }, 1000); // Simulate a delay for demonstration
+        }, 1000); 
     };
     const handleLogin = () => {
         router.push('/login');
     }
+
     // Function that handles form submission failure
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -77,6 +74,7 @@ const index = () => {
                         >
                             <Form.Item
                                 label="User Name"
+                                autoComplete="off"
                                 name="UserName"
                                 rules={[{ required: true, message: 'Please input your User Name!' }]}
                             >
@@ -85,6 +83,7 @@ const index = () => {
                             <Form.Item
                                 label="Phone Number"
                                 name="PhoneNumber"
+                                autoComplete="off"
                                 rules={[{ required: true, message: 'Please input your Phone Number!' }]}
                             >
                                 <InputNumber style={{ width: '100%' }} />
@@ -92,7 +91,13 @@ const index = () => {
                             <Form.Item
                                 label="Email"
                                 name="Email"
-                                rules={[{ required: true, message: 'Please input your Email!' }]}
+                                autoComplete="off"
+                                rules={[{ required: true, message: 'Please input your Email!' },
+                                {
+                                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: 'Please enter a valid email!',
+                                }
+                                ]}
                             >
                                 <Input />
                             </Form.Item>
@@ -100,17 +105,29 @@ const index = () => {
                             <Form.Item
                                 label="Password"
                                 name="password"
+                                autoComplete="off"
                                 onChange={handleEmail}
                                 id="pass"
-                                rules={[{ required: true, message: 'Please input your password!' }]}
+                                rules={[{ required: true, message: 'Please input your password!' },
+                                {
+                                    pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/,
+                                    message: 'Password must contain at least 8 characters, one uppercase letter, one special character,number.',
+                                }
+                                ]}
                             >
                                 <Input.Password />
                             </Form.Item>
                             <Form.Item
                                 label="Confirm Password"
                                 name="Confirm password"
+                                autoComplete="off"
                                 onChange={confirmpass}
-                                rules={[{ required: true, message: 'Please input your confirm password!' }]}
+                                rules={[{ required: true, message: "Please input your Confirm password!" },
+                                {
+                                    pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/,
+                                    message: 'Password must contain at least 8 characters, one uppercase letter, one special character,number.',
+                                }
+                                ]}
                             >
                                 <Input.Password />
                             </Form.Item>
@@ -127,32 +144,6 @@ const index = () => {
                         </Form>
                     </div>
 
-
-
-                    {/* <h2>Login</h2>
-                    <form onSubmit={handleLogin}>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="username">Username</label>
-                            <input
-                                type="text"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className={styles.submitBtn}>Submit</button>
-                    </form> */}
                 </div>
 
                 <div className='text-black absolute bottom-1 w-full flex justify-around'>
