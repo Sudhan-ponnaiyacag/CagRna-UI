@@ -94,14 +94,14 @@ const Login = () => {
           </div>
         </div>
 
-        <div className='text-black absolute bottom-1 w-full flex justify-around'>
-          <div className='text-lg font-semibold'>
+        <div className='text-black absolute bottom-1 w-full lg:flex lg:justify-around md:flex md:justify-around text-center'>
+          <div className='text-lg font-semibold mt-4'>
             <h1>© 2024, made with
               by
               Creative Tim
               for a better web.</h1>
           </div>
-          <div className='grid grid-cols-3 gap-2 text-center text-lg'>
+          <div className='grid lg:grid-cols-3 md:grid-cols-3 grid-cols-3 gap-2 text-center text-lg'>
             <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Ponnaiyas cag</h2>
             <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Help</h2>
             <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Tutorial</h2>
