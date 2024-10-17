@@ -37,6 +37,25 @@
 
 }
 
+@media (max-width:425px) {
+    .card {
+        /* background-color: rgba(255, 255, 255, 0.9); */
+        /* Card with slight opacity */
+        padding: 0;
+        border-radius: 15px;
+        /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+        /* Soft shadow for the card */
+        text-align: center;
+        /* max-width: 400px; */
+        width: 100%;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        /* height: 100%; */
+
+    }
+}
+
 .formstyle {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
@@ -77,4 +96,9 @@
 .submitBtn:hover {
     background-color: #0056b3;
     /* Darker blue on hover */
+}
+
+
+.signupimg {
+    width: 70px;
 }

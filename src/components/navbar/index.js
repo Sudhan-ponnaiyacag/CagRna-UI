@@ -116,7 +116,7 @@ const Dashboard = () => {
               height={150}
               alt="Picture of the author"
             />
-            <a className='text-black font-bold ml-2 text-3xl font-serif'>Ponnaiya's CAG</a>
+            <a className='text-black font-bold ml-2 text-3xl font-serif'>Ponnaiyas CAG</a>
 
           </NavbarBrand>
         </NavbarContent>

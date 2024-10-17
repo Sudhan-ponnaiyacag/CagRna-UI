@@ -102,7 +102,7 @@ const Login = () => {
               for a better web.</h1>
           </div>
           <div className='grid grid-cols-3 gap-2 text-center text-lg'>
-            <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Ponnaiya's cag</h2>
+            <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Ponnaiyas cag</h2>
             <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Help</h2>
             <h2 className='hover:text-blue-700 cursor-pointer font-semibold'>Tutorial</h2>
           </div>
